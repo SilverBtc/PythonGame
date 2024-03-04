@@ -104,6 +104,10 @@ class Ball(pygame.sprite.Sprite):
         # Ball collision with the net
         if pygame.sprite.collide_rect(self, net):
             if self.rect.bottom >= net.rect.top and self.dy > 0:  # Ball hits the top of the net
+                self.dx *= -1
+            if self.rect.right >= net.rect.left and self.dy > 0:  # Ball hits the top of the net
+                self.dy= -1
+            if self.rect.left >= net.rect.right and self.dy < 0:  # Ball hits the top of the net
                 self.dy *= -1
 
     def serve(self):
